@@ -15,6 +15,14 @@
 	</properties>
 	<dependencies>
 	
+		
+		<!-- javax.mail/mail -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+	
 		<!-- HikariCP -->
 		<dependency>
 		    <groupId>com.zaxxer</groupId>
@@ -103,6 +111,13 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
+		</dependency>
+		
+		<!-- spring-context-support -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>5.2.7.RELEASE</version>
 		</dependency>
 				
 		<!-- AspectJ -->

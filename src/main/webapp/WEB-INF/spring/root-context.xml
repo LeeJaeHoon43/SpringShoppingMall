@@ -26,6 +26,25 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />	
 	</bean>	
+	
+	<!-- NaverMail 설정 -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.naver.com"/>
+		<property name="port" value="465"/>
+		<property name="username" value="ljh53502@naver.com"/>
+		<property name="password" value="mbcmedia@43"/>
+		<!-- 보안관련 SSL과 관련된 설정 -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>			
+				<prop key="mail.smtp.starttls.enable">true</prop>			
+				<prop key="mail.smtps.checkserveridentity">true</prop>			
+				<prop key="mail.smtps.ssl.trust">*</prop>			
+				<prop key="mail.debug">true</prop>			
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>			
+			</props>
+		</property>
+	</bean>
     
 	<mybatis-spring:scan base-package="com.ljh.mapper"/>
     <context:component-scan base-package="com.ljh.model"></context:component-scan>
