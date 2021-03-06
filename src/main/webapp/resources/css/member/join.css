@@ -36,7 +36,9 @@
 .id_input_box {
 	border: 1px solid black;
 	height: 31px;
+	width : 61%;
 	padding: 10px 14px;
+	float: left;
 }
 
 .id_input {
@@ -44,10 +46,23 @@
 	height: 100%;
 	border: none;
 	font-size: 28px;
-} /* 비밀번호 영역 */
+} 
+.idCheck_button {
+	border: 1px solid black;
+	height: 51px;
+	width: 30%;
+	float: right;
+	line-height: 50px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: 900;
+	background-color: #ececf7;
+	cursor: pointer;
+}
+/* 비밀번호 영역 */
 .pw_wrap {
 	width: 100%;
-	margin-top: 20px;
+	margin-top: 60px;
 }
 
 .pw_name {
@@ -235,7 +250,8 @@
 	height: 100%;
 	border: none;
 	font-size: 28px;
-} /* 가입하기 버튼 */
+} 
+/* 가입하기 버튼 */
 .join_button_wrap {
 	margin-top: 40px;
 	text-align: center;

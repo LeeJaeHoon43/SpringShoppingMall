@@ -20,6 +20,9 @@
 					<div class="id_input_box">
 						<input class="id_input" id="memberId" name="memberId">
 					</div>
+					<div class="idCheck_button">
+						<span>ID 중복확인</span>
+					</div>
 					<span class="id_input_re_1">사용 가능한 아이디입니다.</span> 
 					<span class="id_input_re_2">아이디가 이미 존재합니다.</span>
 				</div>
@@ -94,14 +97,15 @@
 	});
 	
 	// 아이디 중복 검사.
-	$(".id_input").on("propertychange change keyup paste input", function() {
+	$(".idCheck_button").click(function() {
 		var memberId = $(".id_input").val();
 		var data = {memberId : memberId}
+		console.log("memberId : " + memberId);
 		
 		$.ajax({
 			type : "post",
 			url : "/member/memberIdChk",
-			data : data,
+			data : data,	
 			success : function(result) {
 				if (result != "fail") {
 					$(".id_input_re_1").css("display", "inline-block");
