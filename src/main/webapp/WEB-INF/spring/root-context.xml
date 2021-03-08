@@ -35,15 +35,15 @@
 		<property name="password" value="mbcmedia@43"/>
 		<!-- 보안관련 SSL과 관련된 설정 -->
 		<property name="javaMailProperties">
-			<props>
-				<prop key="mail.smtp.auth">true</prop>			
-				<prop key="mail.smtp.starttls.enable">true</prop>			
-				<prop key="mail.smtps.checkserveridentity">true</prop>			
-				<prop key="mail.smtps.ssl.trust">*</prop>			
-				<prop key="mail.debug">true</prop>			
-				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>			
-			</props>
-		</property>
+	      <props>
+		      <prop key="mail.smtp.auth">true</prop>
+		      <prop key="mail.smtp.starttls.enable">true</prop>
+		      <prop key="mail.smtps.checkserveridentity">true</prop>
+		      <prop key="mail.smtps.ssl.trust">*</prop>
+		      <prop key="mail.debug">true</prop>
+		      <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+	      </props>
+     </property>
 	</bean>
     
 	<mybatis-spring:scan base-package="com.ljh.mapper"/>
