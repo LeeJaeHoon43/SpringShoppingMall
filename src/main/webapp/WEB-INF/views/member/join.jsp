@@ -101,86 +101,90 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 
-	var code = ""; // 이메일 전송 인증번호 저장 위한 코드.
-	var idCheck = false; // 아이디.
-	var idckCheck = false; // 아이디 중복 검사.
-	var pwCheck = false; // 비밀번호.
-	var pwchCheck = false; // 비밀번호 확인.
-	var pwckcorCheck = false; // 비밀번호 확인. 일치 확인.
-	var nameCheck = false; // 이름.
-	var mailCheck = false; // 이메일.
-	var mailnumCheck = false; // 이메일 인증번호 확인.
-	var addressCheck = false; // 주소.
+	var code = "";					// 이메일전송 인증번호 저장위한 코드
+	/* 유효성 검사 통과유무 변수 */
+	var idCheck = false;			// 아이디
+	var idckCheck = false;			// 아이디 중복 검사
+	var pwCheck = false;			// 비번
+	var pwckCheck = false;			// 비번 확인
+	var pwckcorCheck = false;		// 비번 확인 일치 확인
+	var nameCheck = false;			// 이름
+	var mailCheck = false;			// 이메일
+	var mailnumCheck = false;		// 이메일 인증번호 확인
+	var addressCheck = false 		// 주소
 	
-	$(document).ready(function() {
-		// 회원가입 버튼.
-		$(".join_button").click(function() {
-			var id = $(".id_input").val(); // id 입력란.
-			var pw = $(".pw_input").val(); // 비밀번호 입력란.
-			var pwck = $(".pwck_input").val(); // 비밀번호 확인 입력란.
-			var name = $(".user_input").val(); // 이름 입력란.
-			var mail = $(".mail_input").val(); // 이메일 입력란.
-			var addr = $(".address_input_3").val(); // 주소 입력란.
+	$(document).ready(function(){
+		//회원가입 버튼(회원가입 기능 작동)
+		$(".join_button").click(function(){
 			
-			// 아이디 유효성 검사.
-			if (id == "") {
-				$(".final_id_ck").css("display", "block");
+			/* 입력값 변수 */
+			var id = $(".id_input").val(); 				// id 입력란
+			var pw = $(".pw_input").val();				// 비밀번호 입력란
+			var pwck = $(".pwck_input").val();			// 비밀번호 확인 입력란
+			var name = $(".user_input").val();			// 이름 입력란
+			var mail = $(".mail_input").val();			// 이메일 입력란
+			var addr = $(".address_input_3").val();		// 주소 입력란
+			
+			/* 아이디 유효성검사 */
+			if(id == ""){
+				$(".final_id_ck").css("display","block");
 				idCheck = false;
-			}else {
+			}else{
 				$(".final_id_ck").css("display", "none");
 				idCheck = true;
 			}
 			
-			// 비밀번호 유효성 검사.
-			if (pw == "") {
-				$(".final_pw_ck").css("display", "block");
+			/* 비밀번호 유효성 검사 */
+			if(pw == ""){
+				$(".final_pw_ck").css("display","block");
 				pwCheck = false;
-			}else {
+			}else{
 				$(".final_pw_ck").css("display", "none");
 				pwCheck = true;
 			}
 			
-			// 비밀번호 확인 유효성 검사.
-			if (pwck == "") {
-				$(".final_pwck_ck").css("display", "block");
+			/* 비밀번호 확인 유효성 검사 */
+			if(pwck == ""){
+				$(".final_pwck_ck").css("display","block");
 				pwckCheck = false;
-			}else {
+			}else{
 				$(".final_pwck_ck").css("display", "none");
 				pwckCheck = true;
 			}
 			
-			// 이름 유효성 검사.
+			/* 이름 유효성 검사 */
 			if(name == ""){
-	            $(".final_name_ck").css("display","block");
-	            nameCheck = false;
-	        }else{
-	            $(".final_name_ck").css("display", "none");
-	            nameCheck = true;
-	        }
-
-			// 이메일 유효성 검사.
-	        if(mail == ""){
-	            $(".final_mail_ck").css("display","block");
-	            mailCheck = false;
-	        }else{
-	            $(".final_mail_ck").css("display", "none");
-	            mailCheck = true;
-	        }
+				$(".final_name_ck").css("display","block");
+				nameCheck = false;
+			}else{
+				$(".final_name_ck").css("display", "none");
+				nameCheck = true;
+			}		
 			
-			// 주소 유효성 검사. 
+			/* 이메일 유효성 검사 */
+			if(mail == ""){
+				$(".final_mail_ck").css("display","block");
+				mailCheck = false;
+			}else{
+				$(".final_mail_ck").css("display", "none");
+				mailCheck = true;
+			}		
+			
+			/* 주소 유효성 검사 */
 			if(addr == ""){
-	            $(".final_addr_ck").css("display","block");
-	            addressCheck = false;
-	        }else{
-	            $(".final_addr_ck").css("display", "none");
-	            addressCheck = true;
-	        }
+				$(".final_addr_ck").css("display","block");
+				addressCheck = false;
+			}else{
+				$(".final_addr_ck").css("display", "none");
+				addressCheck = true;
+			}		
 			
-			// 최종 유효성 검사.
+			/* 최종 유효성 검사 */
 			if(idCheck&&idckCheck&&pwCheck&&pwckCheck&&pwckcorCheck&&nameCheck&&mailCheck&&mailnumCheck&&addressCheck){
 				$("#join_form").attr("action", "/member/join");
-				$("#join_form").submit();
-	        }
+				$("#join_form").submit();			
+				
+			}		
 			return false;
 		});
 	});
