@@ -31,7 +31,7 @@
 	
 	<!-- 로그인 -->
 	<select id="memberLogin" resultType="com.ljh.model.MemberVO">
-		SELECT memberId, memberName, adminck, money, point
+		SELECT memberId, memberPw, memberName, adminck, money, point
 		FROM BOOK_MASTER
 		WHERE memberId = #{memberId}
 	</select>
