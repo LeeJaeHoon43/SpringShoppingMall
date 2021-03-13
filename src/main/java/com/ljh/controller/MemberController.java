@@ -106,7 +106,7 @@ public class MemberController {
 	}
 	
 	// 로그인.
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public String loginPOST(HttpServletRequest request, MemberVO memberVO, RedirectAttributes rttr) throws Exception{
 		HttpSession session = request.getSession();
 		String rawPw = "";

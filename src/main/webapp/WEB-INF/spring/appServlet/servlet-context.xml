@@ -25,6 +25,18 @@
 	
 	<beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></beans:bean>
 	
+	<!-- 인터셉터 적용. -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/login.do"/>
+			<beans:bean id="loginInterceptor" class="com.ljh.interceptor.LoginInterceptor"></beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/admin/**"/>
+			<beans:bean id="AdminInterceptor" class="com.ljh.interceptor.AdminInterceptor"></beans:bean>
+		</interceptor>
+	</interceptors>
+	
 	<context:component-scan base-package="com.ljh.controller" />
 
 </beans:beans>
