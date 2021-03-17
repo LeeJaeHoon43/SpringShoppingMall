@@ -1,14 +1,18 @@
 package com.ljh.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ljh.model.AuthorVO;
+import com.ljh.model.Criteria;
 import com.ljh.service.AuthorService;
 
 @Controller
@@ -48,15 +52,17 @@ public class AdminController {
     
     /* 작가 관리 페이지 접속 */
     @RequestMapping(value = "authorManage", method = RequestMethod.GET)
-    public void authorManageGET() throws Exception{
+    public void authorManageGET(Criteria cri, Model model) throws Exception{
         logger.info("작가 관리 페이지 접속");
+        List list = authorService.authorGetList(cri); // 작가 목록 출력 데이터.
+        model.addAttribute("list", list);
     } 
     
     // 작가 등록.
     @RequestMapping(value="authorEnroll.do", method = RequestMethod.POST)
     public String authorEnrollPOST(AuthorVO author, RedirectAttributes rttr) throws Exception{
-    	authorService.authorEnroll(author);
-    	rttr.addFlashAttribute("enroll_result", author.getAuthorName());
+    	authorService.authorEnroll(author); // 작가 등록 쿼리 수정.
+    	rttr.addFlashAttribute("enroll_result", author.getAuthorName()); // 등록 성공 메시지(작가 이름)
     	return "redirect:/admin/authorManage";
     }
 }

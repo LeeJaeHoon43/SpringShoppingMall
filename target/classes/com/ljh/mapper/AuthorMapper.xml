@@ -7,4 +7,34 @@
 		INSERT INTO vam_author(authorName, nationId, authorIntro)
 		VALUES (#{authorName}, #{nationId}, #{authorIntro})
 	</insert>
+	
+	<!-- 작가 목록 -->
+	<select id="authorGetList" resultType="com.ljh.model.AuthorVO">
+		<![CDATA[
+		SELECT
+			*
+		FROM(
+			SELECT
+				/*+INDEX_DESC(vam_author SYS_C0014069) */
+				rownum AS rn,
+				authorId,
+				authorName,
+				nationId,
+				regDate,
+				updateDate
+			FROM
+				vam_author
+			WHERE
+		]]>
+				<if test="keyword != null">
+					authorName LIKE '%'||#{keyword}||'%' AND
+				</if>
+		<![CDATA[
+					rownum <= #{pageNum} * #{amount}
+			)
+			WHERE 
+				rn > (#{pageNum} - 1) * #{amount}  
+		]]>
+	</select>
+	
 </mapper>
