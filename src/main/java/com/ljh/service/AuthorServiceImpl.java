@@ -27,4 +27,9 @@ public class AuthorServiceImpl implements AuthorService{
 	public List<AuthorVO> authorGetList(Criteria cri) throws Exception {
 		return authorMapper.authorGetList(cri);
 	}
+
+	@Override
+	public int authorGetTotal(Criteria cri) throws Exception {
+		return authorMapper.authorGetTotal(cri);
+	}
 }
