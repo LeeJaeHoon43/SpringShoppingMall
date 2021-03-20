@@ -11,16 +11,19 @@ a {
 
 ul {
 	list-style: none;
-}
+} 
+
 /* 화면 전체 렙 */
 .wrapper {
 	width: 100%;
-}
+} 
+
 /* content 랩 */
 .wrap {
 	width: 1080px;
 	margin: auto;
-}
+} 
+
 /* 홈페이지 기능 네비 */
 .top_gnb_area {
 	width: 100%;
@@ -57,11 +60,12 @@ ul {
 	color: white;
 	font-size: 50px;
 	font-weight: bolder;
-}
+} 
+
 /* 관리자 wrap(네비+컨텐츠) */
 .admin_wrap {
 	
-}
+} 
 
 /* 관리자페이지 네비 영역 */
 .admin_navi_wrap {
@@ -106,16 +110,17 @@ ul {
 
 .admin_list_04 {
 	background-color: #c8c8c8;
-}
+} 
 
 /* 관리자페이지 컨텐츠 영역 */
 .admin_content_wrap {
 	width: 80%;
 	float: left;
-	height: 750px;
-}
+	min-height: 700px;
+} 
 
-.admin_content_subject { /* 관리자 컨텐츠 제목 영역 */
+/* 관리자 컨텐츠 제목 영역 */
+.admin_content_subject {
 	font-size: 40px;
 	font-weight: bolder;
 	padding-left: 15px;
@@ -123,123 +128,74 @@ ul {
 	height: 80px;
 	line-height: 80px;
 	color: white;
-}
-/* 작가 목록 영역 */
-.author_table_wrap {
-	padding: 20px 35px
+} 
+
+/* 관리자 컨텐츠 메인 영역 */
+.form_section {
+	width: 95%;
+	margin-left: 2%;
+	margin-top: 20px;
+	border: 1px solid #dbdde2;
+	background-color: #efefef;
 }
 
-.author_table {
-	width: 100%;
-	border: 1px solid #d3d8e1;
+.form_section_title {
+	padding: 20px 35px;
+}
+
+.form_section_title label {
+	display: block;
+	font-size: 20px;
+	font-weight: 800;
+}
+
+.form_section_content {
+	padding: 20px 35px;
+	border-top: 1px solid #dbdde2;
+}
+
+.form_section_content input {
+	width: 98%;
+	height: 25px;
+	font-size: 20px;
+	padding: 5px 1%;
+}
+
+.form_section_content textarea {
+	width: 98%;
+	height: 170px;
+	font-size: 20px;
+}
+
+.form_section_content select {
+	width: 98%;
+	height: 35px;
+	font-size: 20px;
+	text-align-last: center;
+}
+
+.input_block {
+	background-color: #f9f9f9;
+} 
+
+/* 버튼 영역 */
+.btn_section {
 	text-align: center;
-	border-collapse: collapse;
+	margin: 80px 0;
 }
 
-.author_table td {
-	padding: 10px 5px;
-	border: 1px solid #e9ebf0;
-}
-
-.author_table thead {
-	background-color: #f8f9fd;
-	font-weight: 600;
-}
-
-.author_table a {
-	color: #1088ed;
-	font-weight: 500;
-}
-
-.table_empty {
-	height: 50px;
-	text-align: center;
-	margin: 200px 0 215px 0px;
+.btn {
+	min-width: 180px;
+	padding: 4px 30px;
 	font-size: 25px;
-}
-
-/* 검색 영역 */
-.search_wrap {
-	margin-top: 15px;
-}
-
-.search_input {
-	position: relative;
-	text-align: center;
-}
-
-.search_input input[name='keyword'] {
-	padding: 4px 10px;
-	font-size: 15px;
-	height: 20px;
-	line-height: 20px;
-}
-
-.search_btn {
-	height: 32px;
-	width: 80px;
 	font-weight: 600;
-	font-size: 18px;
-	line-height: 20px;
-	position: absolute;
-	margin-left: 15px;
-	background-color: #c3daf7;
-}
-
-/* 페이지 버튼 인터페이스 */
-.pageMaker_wrap {
-	text-align: center;
-	margin-top: 30px;
-	margin-bottom: 40px;
-}
-
-.pageMaker_wrap a {
-	color: black;
-}
-
-.pageMaker {
-	list-style: none;
-	display: inline-block;
-}
-
-.pageMaker_btn {
-	float: left;
-	width: 40px;
-	height: 40px;
 	line-height: 40px;
-	margin-left: 20px;
 }
 
-.next, .prev {
-	border: 1px solid #ccc;
-	padding: 0 10px;
-}
-
-.next a, .prev a {
-	color: #ccc;
-}
-
-/* 현재 페이지 버튼 */
-.active {
-	border: 2px solid black;
-	font-weight: 400;
-}
-
-.th_column_1 {
-	width: 120px;
-}
-
-.th_column_3 {
-	width: 110px;
-}
-
-.th_column_4 {
-	width: 140px;
-}
-
-.th_column_5 {
-	width: 140px;
-}
+.modify_btn {
+	background-color: #b8d3e8;
+	margin-left: 15px;
+} 
 
 /* footer navai 영역 */
 .footer_nav {
@@ -273,7 +229,8 @@ ul {
 
 .footer_nav_container>ul>span {
 	margin: 0 4px;
-}
+} 
+
 /* footer 영역 */
 .footer {
 	width: 100%;
@@ -307,7 +264,8 @@ ul {
 	width: 680px;
 	margin-left: 70px;
 	margin-top: 30px;
-}
+} 
+
 /* float 속성 해제 */
 .clearfix {
 	clear: both;

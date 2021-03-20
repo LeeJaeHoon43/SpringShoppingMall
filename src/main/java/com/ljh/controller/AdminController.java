@@ -55,6 +55,8 @@ public class AdminController {
     @RequestMapping(value = "/authorManage", method = RequestMethod.GET)
     public void authorManageGET(Criteria cri, Model model) throws Exception{
         logger.info("작가 관리 페이지 접속");
+        
+        // 작가 목록 출력 데이터.
         List list = authorService.authorGetList(cri);
 		
 		if(!list.isEmpty()) {
@@ -73,5 +75,15 @@ public class AdminController {
     	authorService.authorEnroll(author); // 작가 등록 쿼리 수정.
     	rttr.addFlashAttribute("enroll_result", author.getAuthorName()); // 등록 성공 메시지(작가 이름)
     	return "redirect:/admin/authorManage";
+    }
+    
+    // 작가 상세 페이지.
+    @RequestMapping(value = "/authorDetail")
+    public void authorGetInfoGET(int authorId, Criteria cri, Model model) throws Exception{
+    	// 작가 관리 페이지 정보.
+    	model.addAttribute("cri", cri);
+    	
+    	// 선택 작가 정보.
+    	model.addAttribute("authorInfo", authorService.authorGetDetail(authorId));
     }
 }

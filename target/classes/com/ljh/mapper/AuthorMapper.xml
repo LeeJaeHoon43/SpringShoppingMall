@@ -45,4 +45,11 @@
 			WHERE authorName LIKE '%' || #{keyword} || '%'
 		</if>
 	</select>
+	
+	<!-- 작가 상세 페이지. -->
+	<select id="authorGetDetail" resultType="com.ljh.model.AuthorVO">
+		SELECT *
+		FROM vam_author
+		WHERE authorId = #{authorId}
+	</select>
 </mapper>
