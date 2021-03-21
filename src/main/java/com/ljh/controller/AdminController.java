@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -78,12 +79,20 @@ public class AdminController {
     }
     
     // 작가 상세 페이지.
-    @RequestMapping(value = "/authorDetail")
+    @RequestMapping(value = {"/authorDetail", "/authorModify"})
     public void authorGetInfoGET(int authorId, Criteria cri, Model model) throws Exception{
     	// 작가 관리 페이지 정보.
     	model.addAttribute("cri", cri);
     	
     	// 선택 작가 정보.
     	model.addAttribute("authorInfo", authorService.authorGetDetail(authorId));
+    }
+    
+    // 작가 정보 수정.
+    @PostMapping("/authorModify") 
+    public String authorModifyPOST(AuthorVO author, RedirectAttributes rttr) throws Exception{ 
+    	int result = authorService.authorModify(author); 
+    	rttr.addFlashAttribute("modify_result", result); 
+    	return "redirect:/admin/authorManage"; 
     }
 }

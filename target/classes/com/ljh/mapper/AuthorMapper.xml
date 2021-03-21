@@ -52,4 +52,17 @@
 		FROM vam_author
 		WHERE authorId = #{authorId}
 	</select>
+	
+	<!-- 작가 정보 수정 -->
+	<update id="authorModify">
+		UPDATE 
+			vam_author
+		SET 
+			authorName = #{authorName},
+			nationId = #{nationId},
+			authorIntro = #{authorIntro},
+			updateDate = SYSDATE
+		WHERE
+			authorId = #{authorId}
+	</update>
 </mapper>
